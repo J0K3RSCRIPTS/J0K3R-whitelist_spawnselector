@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>J0K3R Whitelist System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+    <div id="app" class="app-root" style="display:none;">
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             STAGE 1: SPAWN SELECTOR
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="stage stage-spawn" data-stage="spawn">
+            <header class="stage-header">
+                <h1 class="header-title" data-i18n="spawn_select_title">Choose your spawn</h1>
+                <p  class="header-sub"   data-i18n="spawn_select_subtitle">Where shall your new life begin?</p>
+            </header>
+
+            <div class="card-grid" id="spawn-cards">
+                <!-- filled dynamically by JS -->
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             STAGE 2: RULES
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="stage stage-rules" data-stage="rules" style="display:none;">
+            <header class="stage-header">
+                <h1 class="header-title" data-i18n="rules_title">Server Rules</h1>
+                <p  class="header-sub"   data-i18n="rules_subtitle">Please read carefully.</p>
+            </header>
+
+            <div class="rules-scroll" id="rules-list">
+                <!-- filled dynamically -->
+            </div>
+
+            <div class="stage-actions">
+                <p class="hint" id="rules-hint" data-i18n="rules_must_scroll">Please scroll to the bottom.</p>
+                <button class="btn-primary" id="btn-accept-rules" disabled>
+                    <span data-i18n="rules_accept_btn">I have read and accept the rules</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             STAGE 3: QUIZ
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="stage stage-quiz" data-stage="quiz" style="display:none;">
+            <header class="stage-header">
+                <h1 class="header-title" data-i18n="quiz_title">Whitelist Test</h1>
+                <p  class="header-sub"   data-i18n="quiz_subtitle">Answer the following questions.</p>
+            </header>
+
+            <div class="quiz-toolbar">
+                <span class="badge" id="quiz-progress">Question 1 of 5</span>
+                <span class="badge" id="quiz-mistakes">Mistakes allowed: 1</span>
+                <span class="badge badge-time" id="quiz-time" style="display:none;">03:00</span>
+            </div>
+
+            <div class="quiz-body" id="quiz-body">
+                <!-- filled dynamically (one question at a time) -->
+            </div>
+
+            <div class="stage-actions">
+                <button class="btn-primary" id="btn-quiz-next">
+                    <span data-i18n="quiz_next_btn">Next question</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             STAGE 4: RESULT
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="stage stage-result" data-stage="result" style="display:none;">
+            <div class="result-card" id="result-card">
+                <div class="result-icon" id="result-icon">✓</div>
+                <h1 class="result-title" id="result-title">Passed!</h1>
+                <p  class="result-sub"   id="result-sub">Welcome to the server!</p>
+                <p  class="result-stats" id="result-stats"></p>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
